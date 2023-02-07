@@ -2,7 +2,7 @@
 Guess the song game from a local directory of mp3 files.
 
 ## Requirements
-Python, pygame, eyed3, mutagen
+Python, pygame, mutagen
 
 `pip install -r requirements.txt`
 
