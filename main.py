@@ -8,6 +8,7 @@ from mutagen.mp3 import MP3
 
 from config import *
 
+finish = False
 while True:
     # initialize a song and random length within the song to start playback
     win = False
@@ -33,11 +34,15 @@ while True:
             time.sleep(timings[turn]) # only play for a certain amount of time
             pygame.mixer.music.stop()
             guess = input('Guess a song name or type nothing to replay the segment\n>')
-            if guess != "":
-                replay = False
-            elif guess == "!quit":
+            if guess == "!quit":
+                finish = True
                 break
+            elif guess != "":
+                replay = False
 
+
+        if finish:
+            break # too lazy
         if song.split(".mp3")[0] == guess:
             win = True
         else:
@@ -47,6 +52,8 @@ while True:
             break
 
 
+    if finish:
+        break
     if win:
         print('you win the song was ' + str(song))
         pygame.mixer.music.play(loops=0, start=play_pos)
