@@ -1,7 +1,6 @@
 import pygame
 import os
 import random
-import eyed3
 import math
 import time
 from mutagen.mp3 import MP3
